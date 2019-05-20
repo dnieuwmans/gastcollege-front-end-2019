@@ -18,7 +18,7 @@ export default class UserSection {
       // Use the await syntax here for fetching the response.
       const response = await this.http.get('https://jsonplaceholder.typicode.com/users');
 
-      // one of the many cases with transforming JSON.
+      // one of the many cases for transforming JSON into a model.
       return response.data.map(user => new User({
         id: user.id,
         name: user.name,
