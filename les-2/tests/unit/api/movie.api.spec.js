@@ -1,12 +1,10 @@
 import MovieSection from '@/api/sections/movie.section';
 
-// To run tests: yarn test:unit or npm run test:unit. 
+// To run tests: yarn test:unit or npm run test:unit.
 // Describe what you are testing
 describe('Api - Movie Section', () => {
-
   // What should it do?
   it('Should fetch all the data from the api', async () => {
-
     // Mock the api with stub data.
     // Please refer to: https://jestjs.io/docs/en/mock-functions
     const moviesApiMock = {
@@ -34,7 +32,6 @@ describe('Api - Movie Section', () => {
   });
 
   it('Should fetch all the data from the api - THIS GOES WRONG ON PURPOSE', async () => {
-
     // Mock the api with stub data.
     // Please refer to: https://jestjs.io/docs/en/mock-functions
     const moviesApiMock = {
@@ -60,5 +57,4 @@ describe('Api - Movie Section', () => {
     expect(moviesApiMock.get).toBeCalled();
     expect(movies[0].title).toBe('Star Wars: Episode V - The Empire Strikes Back');
   });
-
 });
