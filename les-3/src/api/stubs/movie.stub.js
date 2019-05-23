@@ -6,9 +6,9 @@ const movieStub = {
     get: (url, data) => {
     const stub = {
       data: [
-        { title: 'Star Wars: Episode IV - A New Hope', "already-watched": true, },
-        { title: 'Star Wars: Episode V - The Empire Strikes Back', "already-watched": false, },
-        { title: 'Star Wars: Episode VI - Return of the Jedi', "already-watched": false, },
+        { title: 'Star Wars: Episode IV - A New Hope', 'already-watched': true },
+        { title: 'Star Wars: Episode V - The Empire Strikes Back', 'already-watched': false },
+        { title: 'Star Wars: Episode VI - Return of the Jedi', 'already-watched': false },
       ],
     };
 

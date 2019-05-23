@@ -9,8 +9,7 @@
 
 <script>
 export default {
-    name: 'movie-item-component',
-    props: ['movie']
-}
+  name: 'movie-item-component',
+  props: ['movie'],
+};
 </script>
-

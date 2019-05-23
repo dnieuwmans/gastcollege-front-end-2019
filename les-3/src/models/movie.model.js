@@ -1,6 +1,7 @@
 // Sample model class
 export default class Movie {
     title = '';
+
     alreadyWatched = false;
 
     // We can have multiple approaches for transforming data into a model.

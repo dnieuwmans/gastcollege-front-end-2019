@@ -8,11 +8,15 @@
                 <label for="search">Search:</label>
                 <input type="search" v-model="searchText" id="search" placeholder="Search...">
             </div> -->
-            <search-box-component @searched="setSearchText" /> 
+            <search-box-component @searched="setSearchText" />
         </header>
         <section class="main-wrapper__section">
             <ul>
-                <movie-item-component v-for="(movie, key) in filteredMovies" :key="key" :movie="movie" />
+                <movie-item-component
+                    v-for="(movie, key) in filteredMovies"
+                    :key="key"
+                    :movie="movie"
+                />
             </ul>
         </section>
         <footer class="main-wrapper__footer">
@@ -29,36 +33,34 @@ import SearchBoxComponent from '@/components/search-box.component.vue';
 import MovieItemComponent from './components/movie-item.component.vue';
 
 export default {
-    name: 'home',
-    components: {
-        SearchBoxComponent,
-        MovieItemComponent,
-    },
-    data: () => {
-        return {
-            searchText: '',
-            movies: [],
-        }
-    },
-    async created() {
-        this.movies = await Api.Movie.fetchAll();
-    },
-    computed: {
-        filteredMovies: function() {
-            return this.movies.filter((movie) => {
-                const title = movie.title.toLowerCase();
-                const searchText = this.searchText.toLowerCase().trim();
+  name: 'home',
+  components: {
+    SearchBoxComponent,
+    MovieItemComponent,
+  },
+  data: () => ({
+    searchText: '',
+    movies: [],
+  }),
+  async created() {
+    this.movies = await Api.Movie.fetchAll();
+  },
+  computed: {
+    filteredMovies() {
+      return this.movies.filter((movie) => {
+        const title = movie.title.toLowerCase();
+        const searchText = this.searchText.toLowerCase().trim();
 
-                return title.includes(searchText);
-            });
-        },
+        return title.includes(searchText);
+      });
     },
-    methods: {
-        setSearchText: function(value) {
-            this.searchText = value;
-        }
-    }
-}
+  },
+  methods: {
+    setSearchText(value) {
+      this.searchText = value;
+    },
+  },
+};
 </script>
 
 <style>
@@ -110,7 +112,7 @@ export default {
         font-family: 'Open Sans', sans-serif;
         line-height: 1.8;
     }
-    
+
     .main-wrapper__header {
         background: #f3f3f3;
         padding: 1rem;
