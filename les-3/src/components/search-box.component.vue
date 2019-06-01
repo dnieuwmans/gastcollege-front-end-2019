@@ -6,7 +6,7 @@
             v-model="searchText"
             id="search"
             placeholder="Search..."
-            @blur="$emit('searched', searchText)"
+            @keydown="$emit('searched', searchText)"
         >
     </div>
 </template>

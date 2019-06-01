@@ -1,40 +1,44 @@
 <template>
-    <main class="main-wrapper">
-        <header class="main-wrapper__header">
-            <div class="main-header__title">
-                <h4>Watchlist</h4>
-            </div>
-            <!-- <div class="main-header__search">
-                <label for="search">Search:</label>
-                <input type="search" v-model="searchText" id="search" placeholder="Search...">
-            </div> -->
-            <search-box-component @searched="setSearchText" />
-        </header>
-        <section class="main-wrapper__section">
-            <ul>
-                <movie-item-component
-                    v-for="(movie, key) in filteredMovies"
-                    :key="key"
-                    :movie="movie"
-                />
-            </ul>
-        </section>
-        <footer class="main-wrapper__footer">
-            <p v-if="searchText !== ''">
-                Gevonden resultaten: {{ filteredMovies.length }}/{{ movies.length }}
-            </p>
-        </footer>
-    </main>
+    <default-layout>
+        <main class="main-wrapper">
+            <header class="main-wrapper__header">
+                <div class="main-header__title">
+                    <h4>Watchlist</h4>
+                </div>
+                <!-- <div class="main-header__search">
+                    <label for="search">Search:</label>
+                    <input type="search" v-model="searchText" id="search" placeholder="Search...">
+                </div> -->
+                <search-box-component @searched="setSearchText" />
+            </header>
+            <section class="main-wrapper__section">
+                <ul>
+                    <movie-item-component
+                        v-for="(movie, key) in filteredMovies"
+                        :key="key"
+                        :movie="movie"
+                    />
+                </ul>
+            </section>
+            <footer class="main-wrapper__footer">
+                <p v-if="searchText !== ''">
+                    Gevonden resultaten: {{ filteredMovies.length }}/{{ movies.length }}
+                </p>
+            </footer>
+        </main>
+    </default-layout>
 </template>
 
 <script>
 import Api from '@/api/api';
+import DefaultLayout from '@/layouts/default/default.layout.vue';
 import SearchBoxComponent from '@/components/search-box.component.vue';
 import MovieItemComponent from './components/movie-item.component.vue';
 
 export default {
   name: 'home',
   components: {
+    DefaultLayout,
     SearchBoxComponent,
     MovieItemComponent,
   },
@@ -161,7 +165,7 @@ export default {
         display: block;
         margin-right: 1rem;
         cursor: pointer;
-        font-size: 1.25rem;
+        font-size: 1rem;
         transition: all 0.3s ease;
     }
 
