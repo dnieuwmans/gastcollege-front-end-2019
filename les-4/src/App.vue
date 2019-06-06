@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <form @submit.prevent>
-      <div class="field">
+      <div class="field" id="name-field">
         <label for="name">Name:</label>
         <input
           type="text"
@@ -13,7 +13,7 @@
         <span class="error">{{ name.error }}</span>
       </div>
 
-      <div class="field">
+      <div class="field" id="email-field">
         <label for="email">Email:</label>
         <input
           type="email"
@@ -56,7 +56,7 @@ export default {
         error: '',
         validation: {
           type: 'text',
-          params: { min: 2, max: 32, allowEmpty: true },
+          params: { min: 2, max: 4, allowEmpty: true },
         },
       },
       email: {
