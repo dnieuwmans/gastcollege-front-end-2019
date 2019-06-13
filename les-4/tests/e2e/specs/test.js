@@ -1,15 +1,17 @@
 // https://docs.cypress.io/api/introduction/api.html
 import faker from 'faker';
 
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
+describe('My form', () => {
+  it('Fill the form', () => {
+    faker.locale = 'de';
+
     cy.visit('/');
 
     cy.get('#name-field > input')
       .type(faker.name.findName())
       .blur();
 
-    cy.get('#name-field > .error')
+    cy.get('#email-field > .error')
       .should('be.visible');
   });
 });
